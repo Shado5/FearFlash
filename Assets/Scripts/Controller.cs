@@ -112,14 +112,18 @@ public class Controller : MonoBehaviour
 
     public static Controller instance;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     void Awake()
     {
         instance = this;
         playerCamera = GetComponentInChildren<Camera>();
         characterController = GetComponent<CharacterController>();
         defaultYPos = playerCamera.transform.localPosition.y;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        
 
     }
     void Update()
@@ -272,24 +276,6 @@ public class Controller : MonoBehaviour
             playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (isCrouching ? crouchBobAmount : IsSprinting ? sprintBobAmount : walkBobAmount), playerCamera.transform.localPosition.z);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == ("Respawn"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        if (other.tag == ("Finish"))
-        {
-            SceneManager.LoadScene("WinScreen");
-            Cursor.visible = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == ("Respawn"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
+ 
 
 }
