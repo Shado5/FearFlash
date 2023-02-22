@@ -115,7 +115,7 @@ public class PhotoCapture : MonoBehaviour
     {
         if (objectsToTakePicturesOf.Count == 0)
         {
-            objectsText.text = "Congratulations Bud! You have completed all your tasks.\nWhat to do next: LEAVE";
+            objectsText.text = "Enter House";
         }
     }
 
@@ -162,7 +162,7 @@ public class PhotoCapture : MonoBehaviour
     }
     void UpdateObjectsText()
     {
-        string objectsTextString = "Objects to take pictures of: \n";
+        string objectsTextString = "\n";
         foreach (GameObject obj in objectsToTakePicturesOf)
         {
             objectsTextString += takenPicturesOfObjects.Contains(obj) ? "<s>" + obj.name + "</s>\n" : obj.name + "\n";

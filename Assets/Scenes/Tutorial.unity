@@ -189,6 +189,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &195039888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2303074418411030941, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
+  m_PrefabInstance: {fileID: 1538298337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &195039892
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195039888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 406180959844853462, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
 --- !u!1 &203115176 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1331770500531290163, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
@@ -581,6 +600,11 @@ Transform:
   m_Father: {fileID: 940822291}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616010457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8009987137999418058, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
+  m_PrefabInstance: {fileID: 1538298337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &661879555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1064,9 @@ MonoBehaviour:
   manScream: {fileID: 1332241097}
   outAudio: {fileID: 1332241097}
   objectsToTakePicturesOf:
+  - {fileID: 6589591599422641834}
   - {fileID: 1261588584}
+  - {fileID: 195039888}
   mainCamera: {fileID: 47631554}
   objectsText: {fileID: 3806939860348078204}
   backgroundImage: {fileID: 3806939861503888802}
@@ -2392,6 +2418,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2303074418411030941, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
+      propertyPath: m_Name
+      value: Bus Sign
+      objectReference: {fileID: 0}
     - target: {fileID: 2637387679347396520, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2547,6 +2577,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6830945432629781959, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
   m_PrefabInstance: {fileID: 1538298337}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1538298341
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616010457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -153830957423991239, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
 --- !u!1 &1656165816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1631664773631917220, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
@@ -2717,10 +2761,12 @@ MonoBehaviour:
   - Hi Babe. I want you to take a few pictures for me... Come to my house...
   - 
   - I dont know why he keeps calling me babe, we broke up ages ago
+  - Regardless... I should take some pictures before I go in, let me check my list
   clips:
   - {fileID: 8300000, guid: e62afd3a8e8ef034a93cf3c66b1c57cd, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: 4a22052ca37ce4b4a90dd9c8d28057d9, type: 3}
+  - {fileID: 8300000, guid: cde93eb34d6cb1d4ead84b43fb5c934a, type: 3}
   text: {fileID: 1669234200}
   audioSource: {fileID: 1974294820}
   objectToDisable: {fileID: 735733182}
@@ -3107,7 +3153,7 @@ GameObject:
   - component: {fileID: 7043929813089496812}
   - component: {fileID: 7043929813089496813}
   m_Layer: 0
-  m_Name: TruckV2
+  m_Name: My Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3320,7 +3366,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 94.3, y: -36.46909}
-  m_SizeDelta: {x: 247.9012, y: 380.1612}
+  m_SizeDelta: {x: 420.227, y: 520.113}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3806939860348078203
 GameObject:
@@ -3387,8 +3433,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3423,7 +3469,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -58.483627, y: 0, z: 0.42919922, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3636,15 +3682,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db98bbd20ba9f2648bd9d205f62950cf, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3670,7 +3716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3806939861503888804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3690,7 +3736,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -34, y: 16}
-  m_SizeDelta: {x: 390.8546, y: 488.7516}
+  m_SizeDelta: {x: 495.837, y: 488.752}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3806939861503888805
 CanvasRenderer:
@@ -4196,7 +4242,7 @@ GameObject:
   - component: {fileID: 7913823849583849401}
   - component: {fileID: 7913823849583849402}
   m_Layer: 0
-  m_Name: IceCream_Truck
+  m_Name: My Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
