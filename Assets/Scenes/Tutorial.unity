@@ -817,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523272459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81, y: 0.65, z: -4.11}
+  m_LocalPosition: {x: -3.81, y: 0.21, z: 3.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 940822289}
   - component: {fileID: 940822288}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3642,7 +3642,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1974294821
+--- !u!143 &1974294822
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974294813}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.49999997
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1974294828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3658,7 +3676,7 @@ MonoBehaviour:
   canJump: 0
   canCrouch: 1
   canUseHeadbob: 1
-  willSlide: 1
+  willSlide: 0
   canInteract: 1
   useFootseps: 1
   sprintKey: 304
@@ -3695,28 +3713,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 94a73c3470e00d74797e9d1a3ff54de3, type: 3}
   - {fileID: 8300000, guid: ed553534ad6667e448b617cb6ec73205, type: 3}
   interactionRayPoint: {x: 0.5, y: 0.5, z: 0}
-  interactionDistance: 2
+  interactionDistance: 3
   interactionLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!143 &1974294822
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974294813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.49999997
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2010344228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5456993239250335235, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
