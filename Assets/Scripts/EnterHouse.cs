@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnterHouse : Interactable
 {
-
+    public GameObject prompt;
     public Transform teleportTarget;
     public GameObject thePlayer;
     public override void OnFocus()
     {
-        throw new System.NotImplementedException();
+        prompt.SetActive(true);
     }
 
     public override void OnInteract()
@@ -19,6 +19,6 @@ public class EnterHouse : Interactable
 
     public override void OnLoseFocus()
     {
-        throw new System.NotImplementedException();
+        prompt.SetActive(false);
     }
 }
