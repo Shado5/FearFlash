@@ -15,10 +15,8 @@ public class EnterHouse : Interactable
 
     public override void OnInteract()
     {
-       //thePlayer.transform.position = teleportTarget.transform.position;
-        SceneManager.LoadScene("TheEnd");
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        thePlayer.transform.position = teleportTarget.transform.position;
+      
     }
 
     public override void OnLoseFocus()
