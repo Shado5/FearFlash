@@ -3,8 +3,15 @@ using TMPro;
 
 public class TextAudioPlayer : MonoBehaviour
 {
-    public string[] lines;
-    public AudioClip[] clips;
+    [System.Serializable]
+    public class LineData
+    {
+        public string text;
+        public AudioClip clip;
+        public Color color = Color.white;
+    }
+
+    public LineData[] lines;
     public TextMeshProUGUI text;
     public AudioSource audioSource;
     public GameObject objectToDisable;
@@ -41,8 +48,9 @@ public class TextAudioPlayer : MonoBehaviour
     private void ShowLine(int index)
     {
         text.gameObject.SetActive(true);
-        text.text = lines[index];
-        audioSource.clip = clips[index];
+        text.text = lines[index].text;
+        text.color = lines[index].color;
+        audioSource.clip = lines[index].clip;
         audioSource.Play();
         displayEndTime = Time.time + displayTime;
     }
