@@ -29,6 +29,8 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource manScream;
     [SerializeField] private AudioSource outAudio;
 
+    [SerializeField] private float _getridofphototime = 3f;
+
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -85,6 +87,7 @@ public class PhotoCapture : MonoBehaviour
             {
                 TakePicture();
                 shotsLeft--; // decrement shots left
+                StartCoroutine(GetRidOfPhoto(_getridofphototime));
 
                 if (!viewingPhoto && canTakePhoto)
                 {
@@ -93,18 +96,7 @@ public class PhotoCapture : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            if (viewingPhoto)
-            {
-                RemovePhoto();
-            }
-            CheckForCompletion();
-            if (objectsToTakePicturesOf.Count == 0)
-            {
-                gameObjectToDisable.SetActive(false);
-            }
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
@@ -249,5 +241,22 @@ public class PhotoCapture : MonoBehaviour
         kitchenText.SetActive(false);
 
         sittingPeople.SetActive(false);
+    }
+
+    public IEnumerator GetRidOfPhoto(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+            if (viewingPhoto)
+            {
+                RemovePhoto();
+            }
+            CheckForCompletion();
+            if (objectsToTakePicturesOf.Count == 0)
+            {
+                gameObjectToDisable.SetActive(false);
+            }
+        
+
     }
 }

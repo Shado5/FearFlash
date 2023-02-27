@@ -34317,6 +34317,7 @@ MonoBehaviour:
   cameraAudio: {fileID: 1332241097}
   manScream: {fileID: 1332241097}
   outAudio: {fileID: 1332241097}
+  _getridofphototime: 2
   objectsToTakePicturesOf:
   - {fileID: 6589591599422641834}
   - {fileID: 1261588584}
