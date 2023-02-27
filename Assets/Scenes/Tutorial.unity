@@ -53078,11 +53078,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3108375
+      value: 1.526208
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.100507
+      value: 1.2163904
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalScale.z
@@ -66494,7 +66494,7 @@ MonoBehaviour:
   screech: {fileID: 690054055}
   light: {fileID: 1338233564}
   _zombietime: 0.8
-  _lighttime: 0.2
+  _lighttime: 0.1
 --- !u!1 &2137531086
 GameObject:
   m_ObjectHideFlags: 0
