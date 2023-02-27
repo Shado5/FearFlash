@@ -65,7 +65,7 @@ public class PhotoCapture : MonoBehaviour
 
     private void Update()
     {
-        shotsLeftText.text = "Shots left: " + shotsLeft; // display the remaining shots
+        shotsLeftText.text = "Shots left " + shotsLeft; // display the remaining shots
 
         if (shotsLeft <= 0 && !cameraAudio.isPlaying) // check if there are no shots left and audio is not playing
         {
