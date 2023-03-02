@@ -7,7 +7,7 @@ public class EndGame : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TheEnd");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
