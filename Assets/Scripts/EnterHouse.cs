@@ -15,8 +15,7 @@ public class EnterHouse : Interactable
 
     public override void OnInteract()
     {
-        thePlayer.transform.position = teleportTarget.transform.position;
-        thePlayer.transform.rotation = teleportTarget.transform.rotation;
+        SceneManager.LoadScene("Interior");
       
     }
 
