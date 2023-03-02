@@ -31,6 +31,7 @@ public class PhotoCapture : MonoBehaviour
 
     [SerializeField] private float _getridofphototime = 3f;
     [SerializeField] private float _reloadTime = 3f;
+    [SerializeField] private float _ePrompt = 15f;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -44,6 +45,7 @@ public class PhotoCapture : MonoBehaviour
     public Image backgroundImage;
     public TMP_Text shotsLeftText;
     public GameObject reloadBar;
+    public TMP_Text ePrompt;
 
     private bool showText = true;
 
@@ -62,6 +64,8 @@ public class PhotoCapture : MonoBehaviour
         wallCrawler.SetActive(false);
         kitchenText.SetActive(false);
         sittingPeople.SetActive(false);
+
+        StartCoroutine(EPrompt(_ePrompt));
     }
 
 
@@ -80,6 +84,7 @@ public class PhotoCapture : MonoBehaviour
             showText = !showText;
             backgroundImage.gameObject.SetActive(showText);
             objectsText.gameObject.SetActive(showText);
+            ePrompt.gameObject.SetActive(false);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -274,5 +279,11 @@ public class PhotoCapture : MonoBehaviour
         
 
         Reload(); // reload the camera
+    }
+    public IEnumerator EPrompt(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        ePrompt.gameObject.SetActive(false);
     }
 }
