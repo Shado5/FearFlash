@@ -43,6 +43,7 @@ public class PhotoCapture : MonoBehaviour
     public TMP_Text objectsText;
     public Image backgroundImage;
     public TMP_Text shotsLeftText;
+    public GameObject reloadBar;
 
     private bool showText = true;
 
@@ -101,7 +102,9 @@ public class PhotoCapture : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
             StartCoroutine(ReloadTime(_reloadTime));
+            reloadBar.SetActive(true);
             
+
         }
     }
     private void CheckForCompletion()
@@ -109,12 +112,15 @@ public class PhotoCapture : MonoBehaviour
         if (objectsToTakePicturesOf.Count == 0)
         {
             objectsText.text = "Enter House";
+
+
         }
     }
 
     void Reload()
     {
         shotsLeft = 5;
+        reloadBar.SetActive(false);
     }
 
     void TakePicture()
@@ -263,6 +269,10 @@ public class PhotoCapture : MonoBehaviour
 
     public IEnumerator ReloadTime(float t)
     {
+        yield return new WaitForSeconds(t);
+
+        
+
         Reload(); // reload the camera
     }
 }
