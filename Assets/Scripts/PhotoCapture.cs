@@ -30,7 +30,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource outAudio;
 
     [SerializeField] private float _getridofphototime = 3f;
-
+    [SerializeField] private float _reloadTime = 3f;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -100,7 +100,8 @@ public class PhotoCapture : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
-            Reload(); // reload the camera
+            StartCoroutine(ReloadTime(_reloadTime));
+            
         }
     }
     private void CheckForCompletion()
@@ -258,5 +259,10 @@ public class PhotoCapture : MonoBehaviour
             }
         
 
+    }
+
+    public IEnumerator ReloadTime(float t)
+    {
+        Reload(); // reload the camera
     }
 }
