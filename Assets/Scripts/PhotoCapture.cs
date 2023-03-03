@@ -74,10 +74,7 @@ public class PhotoCapture : MonoBehaviour
     {
         shotsLeftText.text = "Shots left " + shotsLeft; // display the remaining shots
 
-        if (shotsLeft <= 0 && !cameraAudio.isPlaying) // check if there are no shots left and audio is not playing
-        {
-            outAudio.Play(); // play the audio
-        }
+
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -91,12 +88,13 @@ public class PhotoCapture : MonoBehaviour
         {
             if (shotsLeft > 0) // check if there are shots left
             {
-                TakePicture();
-                shotsLeft--; // decrement shots left
-                StartCoroutine(GetRidOfPhoto(_getridofphototime));
+                
 
                 if (!viewingPhoto && canTakePhoto)
                 {
+                    TakePicture();
+                    shotsLeft--; // decrement shots left
+                    StartCoroutine(GetRidOfPhoto(_getridofphototime));
                     StartCoroutine(CameraFlashEffect());
                     StartCoroutine(CapturePhoto());
                 }
@@ -106,9 +104,11 @@ public class PhotoCapture : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
-            StartCoroutine(ReloadTime(_reloadTime));
-            reloadBar.SetActive(true);
-            
+            if (shotsLeft == 0)
+            {
+                StartCoroutine(ReloadTime(_reloadTime));
+                reloadBar.SetActive(true);
+            }
 
         }
     }
