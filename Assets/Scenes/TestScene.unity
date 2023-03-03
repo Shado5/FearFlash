@@ -290,6 +290,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 261590586551670363, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
   m_PrefabInstance: {fileID: 1940954032}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &803093176 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1107941107285929142, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
+  m_PrefabInstance: {fileID: 1940954032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &803093178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1288174584}
   agent: {fileID: 803093179}
+  anim: {fileID: 803093176}
 --- !u!195 &803093179
 NavMeshAgent:
   m_ObjectHideFlags: 0
