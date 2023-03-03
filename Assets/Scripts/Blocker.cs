@@ -7,14 +7,14 @@ public class Blocker : MonoBehaviour
 {
     public AudioClip[] audioClips;
     public string[] textStrings;
-    public TMP_Text textDisplay;
+    //public TMP_Text textDisplay;
     public float displayTime = 2.0f; // Time to display the text in seconds
     private AudioSource audioSource;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        textDisplay.gameObject.SetActive(false); // Hide the text at the start
+        //textDisplay.gameObject.SetActive(false); // Hide the text at the start
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -27,8 +27,8 @@ public class Blocker : MonoBehaviour
 
             if (textStrings.Length > randomIndex)
             {
-                textDisplay.text = textStrings[randomIndex];
-                textDisplay.gameObject.SetActive(true); // Show the text
+                //textDisplay.text = textStrings[randomIndex];
+                //textDisplay.gameObject.SetActive(true); // Show the text
                 Invoke("HideText", displayTime); // Schedule the text to be hidden
             }
         }
@@ -36,7 +36,7 @@ public class Blocker : MonoBehaviour
 
     private void HideText()
     {
-        textDisplay.gameObject.SetActive(false);
+        //textDisplay.gameObject.SetActive(false);
     }
 }
 
