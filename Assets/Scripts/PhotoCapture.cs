@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 public class PhotoCapture : MonoBehaviour
 {
@@ -116,7 +118,11 @@ public class PhotoCapture : MonoBehaviour
     {
         if (objectsToTakePicturesOf.Count == 0)
         {
-            objectsText.text = "Enter House";
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial"))
+            {
+                objectsText.text = "Enter House";
+            }
+            
 
 
         }
