@@ -3979,7 +3979,7 @@ MonoBehaviour:
   lines:
   - text: 'Where am I? What happened? '
     clip: {fileID: 8300000, guid: 209a3cf7878b17d4abd46aa373a39bf5, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 0}
+    color: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 155955498}
   audioSource: {fileID: 51042949}
   objectToDisable: {fileID: 1848364295}
