@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Demon's Cradle
+  m_text: Fear Flash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ad0a91c37d31163409936ef82218170d, type: 2}
   m_sharedMaterial: {fileID: 6414415701664238646, guid: ad0a91c37d31163409936ef82218170d, type: 2}
