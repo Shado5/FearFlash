@@ -4537,7 +4537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8269602376237858205, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
       propertyPath: m_Name
-      value: Cat Poster
+      value: Bus stop poster
       objectReference: {fileID: 0}
     - target: {fileID: 8426705665140216658, guid: b8f0a381b6e834641b18e2191bb12a61, type: 3}
       propertyPath: m_IsActive
