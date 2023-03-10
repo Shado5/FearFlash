@@ -11,14 +11,19 @@ public class HealthSystem : MonoBehaviour
     {
         if(other.name == "zombie1")
         {
-            --health;
+
+            if (health > 0)
+            {
+                --health;
+            }
+
         }
     }
     private void Update()
     {
         if(health == 0)
         {
-            //SceneManager.
+            SceneManager.GetActiveScene();
         }
     }
 }
