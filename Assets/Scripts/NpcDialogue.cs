@@ -6,16 +6,12 @@ using UnityEngine;
 public class NpcDialogue : MonoBehaviour
 {
   
-    public string dialogueText = "Hello there!";
-
-
-    [SerializeField]private AudioSource audioSource;
-    public TextMeshProUGUI npcText;
+    public AudioSource audioSource;
+    public GameObject npcText;
 
     private void Start()
     {
-       
-        npcText = npcText.GetComponent<TextMeshProUGUI>();
+            //npcText = npcText.GetComponent<TextMeshProUGUI>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,17 +20,14 @@ public class NpcDialogue : MonoBehaviour
         {
             Debug.Log("entered");
             
-                npcText.text = dialogueText;
-                audioSource.Play();
-            
+            //npcText.text = dialogueText;
+            audioSource.Play();
+            npcText.SetActive(true);
         }
+        
     }
-
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            npcText.text = "Have You Seen My Son?";
-        }
+        npcText.SetActive(false);
     }
 }
