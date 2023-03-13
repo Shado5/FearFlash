@@ -30733,7 +30733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334292767802528033, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
@@ -40114,6 +40114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  fullHealth: {fileID: 0}
+  halfHealth: {fileID: 0}
+  noHealth: {fileID: 0}
 --- !u!65 &1727319778
 BoxCollider:
   m_ObjectHideFlags: 0
