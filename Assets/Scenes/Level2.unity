@@ -8530,7 +8530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334292767802528033, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
@@ -9295,7 +9295,7 @@ MonoBehaviour:
   photoDisplayArea: {fileID: 2029471255}
   photoFrame: {fileID: 773137149}
   shadowMonster: {fileID: 1252105146}
-  wallCrawler: {fileID: 1488620457}
+  wallCrawler: {fileID: 2096825778}
   kitchenText: {fileID: 1488620457}
   sittingPeople: {fileID: 1488620457}
   cameraFlash: {fileID: 1812999867}
@@ -10018,6 +10018,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.012302716, y: 0.028779162, z: 0.009959417}
   m_Center: {x: 0, y: -0.00017640783, z: -0.0011201071}
+--- !u!1 &2096825778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8334292767802528033, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
+  m_PrefabInstance: {fileID: 1806972014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103853567
 GameObject:
   m_ObjectHideFlags: 0
