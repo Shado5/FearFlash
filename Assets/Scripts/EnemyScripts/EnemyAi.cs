@@ -24,7 +24,7 @@ public class EnemyAi : MonoBehaviour
     {
         if(other.name == "CameraFlash")
         {
-            this.transform.position = new Vector3(13.71f, 0.0579999983f, -1.92999995f);
+            this.transform.position = (spawn.transform.position);
             print("seen");
         }
         
