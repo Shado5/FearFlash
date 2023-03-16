@@ -10,7 +10,8 @@ public class EnemyAi : MonoBehaviour
     public Animator anim;
     
     public GameObject spawn;
-
+    public AudioSource audioSource;
+    public AudioClip[] enemySounds;
     
 
     // Update is called once per frame
@@ -26,8 +27,9 @@ public class EnemyAi : MonoBehaviour
         {
             this.transform.position = (spawn.transform.position);
             print("seen");
+            audioSource.clip = enemySounds[Random.Range(0,4)];
+            audioSource.Play();
         }
-        
     }
 
 }
