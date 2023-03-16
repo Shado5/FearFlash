@@ -2532,6 +2532,7 @@ MonoBehaviour:
   _getridofphototime: 2
   _reloadTime: 3
   _ePrompt: 15
+  _removeTask: 3
   objectsToTakePicturesOf:
   - {fileID: 6589591599422641834}
   - {fileID: 1261588584}
