@@ -13,9 +13,10 @@ public class SceneChanger : MonoBehaviour
     {
         Application.Quit();
     }
-    public void Restart()
+    public void Level2()
     {
-        
+        SceneManager.LoadScene("Level2");
     }
+    
 }
 
