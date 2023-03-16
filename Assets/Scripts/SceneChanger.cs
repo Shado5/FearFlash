@@ -9,5 +9,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("Tutorial");
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
 
