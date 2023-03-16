@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PhotoCapture : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private float _getridofphototime = 3f;
     [SerializeField] private float _reloadTime = 3f;
     [SerializeField] private float _ePrompt = 15f;
+    [SerializeField] private float _removeTask = 3f;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -149,14 +151,18 @@ public class PhotoCapture : MonoBehaviour
                     Debug.Log("Taking picture of: " + hitObject.name);
                     takenPicturesOfObjects.Add(hitObject);
                     objectsToTakePicturesOf.Remove(hitObject);
-                    UpdateObjectsText();
-                    objectsText.text = "<s>" + hitObject.name + "</s>";
-                   
+                    string objectsTextString = "\n";
+                    foreach (GameObject obj in objectsToTakePicturesOf)
+                    {
 
-                    //if (objectsToTakePicturesOf.Count == objectsToTakePicturesOf.Count / 3)
-                    //{
-                    //    manScream.Play();
-                    //}
+                        objectsTextString += takenPicturesOfObjects.Contains(obj) ? "<s>" + obj.name + "</s>\n" : obj.name + "\n";
+
+                    }
+                    
+                    objectsText.text = objectsTextString;
+                    objectsText.text = "<s>" + hitObject.name + "</s>" + objectsTextString ;
+                    
+
                 }
 
                 else
@@ -172,6 +178,8 @@ public class PhotoCapture : MonoBehaviour
             Debug.Log("All objects have been taken pictures of.");
         }
     }
+
+
     void UpdateObjectsText()
     {
         string objectsTextString = "\n";
@@ -279,6 +287,12 @@ public class PhotoCapture : MonoBehaviour
                 gameObjectToDisable.SetActive(false);
             }
         
+
+    }
+
+    public IEnumerator RemoveTask(float t)
+    {
+        yield return new WaitForSeconds(t);
 
     }
 
