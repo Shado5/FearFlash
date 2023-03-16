@@ -150,7 +150,7 @@ public class PhotoCapture : MonoBehaviour
                     takenPicturesOfObjects.Add(hitObject);
                     objectsToTakePicturesOf.Remove(hitObject);
                     UpdateObjectsText();
-                    //objectsText.text = "<s>" + hitObject.name + "</s>" + objectsTextString ;
+                    objectsText.text = "<s>" + hitObject.name + "</s>";
                    
 
                     //if (objectsToTakePicturesOf.Count == objectsToTakePicturesOf.Count / 3)
