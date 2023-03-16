@@ -1923,9 +1923,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 625262107}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: Tutorial
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2141,7 +2141,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 625262107}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: Tutorial
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -39,7 +39,9 @@ public class HealthSystem : MonoBehaviour
 
         if(health == 0)
         {
-            SceneManager.GetActiveScene();
+            SceneManager.LoadScene("EndScreen");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
