@@ -106,7 +106,11 @@ public class PhotoCapture : MonoBehaviour
                 }
             }
         }
-        
+        if(shotsLeft == 0)
+        {
+            print("s");
+            rToReload.gameObject.SetActive(true);
+        }
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
