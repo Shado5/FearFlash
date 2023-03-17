@@ -49,6 +49,7 @@ public class PhotoCapture : MonoBehaviour
     public Image backgroundImage;
     public TMP_Text shotsLeftText;
     public GameObject reloadBar;
+    public TMP_Text rToReload;
     public TMP_Text ePrompt;
 
     private bool showText = true;
@@ -70,6 +71,7 @@ public class PhotoCapture : MonoBehaviour
         sittingPeople.SetActive(false);
 
         StartCoroutine(EPrompt(_ePrompt));
+        rToReload.enabled = true;
     }
 
 
@@ -108,8 +110,10 @@ public class PhotoCapture : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
+            
             if (shotsLeft == 0)
             {
+                rToReload.enabled = false;
                 StartCoroutine(ReloadTime(_reloadTime));
                 reloadBar.SetActive(true);
             }
@@ -132,6 +136,7 @@ public class PhotoCapture : MonoBehaviour
 
     void Reload()
     {
+        
         shotsLeft = 5;
         reloadBar.SetActive(false);
     }
@@ -303,6 +308,7 @@ public class PhotoCapture : MonoBehaviour
         
 
         Reload(); // reload the camera
+
     }
     public IEnumerator EPrompt(float t)
     {
