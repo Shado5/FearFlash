@@ -6,43 +6,35 @@ using UnityEngine.SceneManagement;
 public class Jumpscare1 : MonoBehaviour
 {
     public GameObject zombie;
-    Animator zombieAnimator;
+    public Animator zombieAnimator;
     public int speed;
     public AudioSource screech;
-    public Transform target;
     public GameObject blackScreen;
 
 
-
-
-    [SerializeField] private float _zombietime = 0.7f;
-    [SerializeField] private float _SceneChangetime = 0.5f;
+    [SerializeField] private float _zombietime = 0.7f; //amount of time before black screen
+    [SerializeField] private float _SceneChangetime = 0.5f; //amount of time before scene change
 
     void Awake()
     {
-        zombieAnimator = zombie.GetComponent<Animator>();
-        
-        
+        zombieAnimator = zombie.GetComponent<Animator>(); //zombie animator called        
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player") //player triggers jumpscare
         {
-            zombieAnimator.SetBool("IsRunning", true);
-            screech.Play();
-            zombie.transform.position = Vector3.MoveTowards(transform.position, new Vector3(-15.6309996f, -15.1000004f, -15.5480003f), speed * Time.deltaTime);
-            StartCoroutine(TurnOffZombie(_zombietime));
-            StartCoroutine(SwitchScene(_SceneChangetime));
-           
+            zombieAnimator.SetBool("IsRunning", true); //Turns on Zombie's running animation
+            screech.Play(); //plays screech sound
+            zombie.transform.position = Vector3.MoveTowards(transform.position, new Vector3(-15.6309996f, -15.1000004f, -15.5480003f), speed * Time.deltaTime); //moves zombie towards the target
+            StartCoroutine(TurnOffZombie(_zombietime)); //starts timer for blackscreen
+            StartCoroutine(SwitchScene(_SceneChangetime)); //starts timer for scene change  
         }
-       
     }
 
-  
     public IEnumerator TurnOffZombie(float t)
     {
         yield return new WaitForSeconds(t);
-        blackScreen.SetActive(true);
+        blackScreen.SetActive(true); 
     }
     public IEnumerator SwitchScene(float t)
     {
