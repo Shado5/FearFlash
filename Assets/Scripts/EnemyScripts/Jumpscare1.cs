@@ -30,6 +30,7 @@ public class Jumpscare1 : MonoBehaviour
         {
             zombieAnimator.SetBool("IsRunning", true);
             screech.Play();
+            zombie.transform.position = Vector3.MoveTowards(transform.position, new Vector3(-15.6309996f, -15.1000004f, -15.5480003f), speed * Time.deltaTime);
             StartCoroutine(TurnOffZombie(_zombietime));
             StartCoroutine(SwitchScene(_SceneChangetime));
            
@@ -42,15 +43,15 @@ public class Jumpscare1 : MonoBehaviour
         if (zombieAnimator.GetBool("IsRunning"))
         {
             
-            zombie.transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            
         }
         
     }
     public IEnumerator TurnOffZombie(float t)
     {
         yield return new WaitForSeconds(t);
-        zombie.SetActive(false);
-        zombieAnimator.SetBool("IsRunning", false);
+        //zombie.SetActive(false);
+        //zombieAnimator.SetBool("IsRunning", false);
         blackScreen.SetActive(true);
     }
     public IEnumerator SwitchScene(float t)
