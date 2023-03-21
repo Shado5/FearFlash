@@ -17,7 +17,7 @@ public class Jumpscare1 : MonoBehaviour
 
     void Awake()
     {
-        zombieAnimator = zombie.GetComponent<Animator>(); //zombie animator called        
+        
     }
     private void OnTriggerEnter(Collider other)
     {
