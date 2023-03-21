@@ -10,10 +10,10 @@ public class Jumpscare1 : MonoBehaviour
     public int speed;
     public AudioSource screech;
     public Transform target;
-   
+    public GameObject blackScreen;
 
-    
-    
+
+
 
     [SerializeField] private float _zombietime = 0.7f;
     [SerializeField] private float _SceneChangetime = 0.5f;
@@ -51,6 +51,7 @@ public class Jumpscare1 : MonoBehaviour
         yield return new WaitForSeconds(t);
         zombie.SetActive(false);
         zombieAnimator.SetBool("IsRunning", false);
+        blackScreen.SetActive(true);
     }
     public IEnumerator SwitchScene(float t)
     {
