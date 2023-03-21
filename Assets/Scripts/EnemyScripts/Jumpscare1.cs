@@ -38,20 +38,10 @@ public class Jumpscare1 : MonoBehaviour
        
     }
 
-    private void Update()
-    {
-        if (zombieAnimator.GetBool("IsRunning"))
-        {
-            
-            
-        }
-        
-    }
+  
     public IEnumerator TurnOffZombie(float t)
     {
         yield return new WaitForSeconds(t);
-        //zombie.SetActive(false);
-        //zombieAnimator.SetBool("IsRunning", false);
         blackScreen.SetActive(true);
     }
     public IEnumerator SwitchScene(float t)
