@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
 
+    //turns pause menu on and off
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -14,9 +15,10 @@ public class PauseMenu : MonoBehaviour
             TogglePauseMenu();
         }
     }
-
+    
     public void TogglePauseMenu()
     {
+        //unfreezes game
         if (Time.timeScale == 0f)
         {
             Time.timeScale = 1f;
@@ -24,6 +26,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+        //freezes game
         else
         {
             Time.timeScale = 0f;
@@ -32,6 +35,7 @@ public class PauseMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+    //restarts current level
     public void RestartGame()
     {
         Time.timeScale = 1f;
@@ -41,12 +45,13 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //quit game
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Game Quit");
     }
-
+    //returns to main menu
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;

@@ -17,17 +17,16 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
-        anim.SetBool("IsRunning", true);
+        agent.SetDestination(player.transform.position); //sets detination of zomie to the player
+        anim.SetBool("IsRunning", true); //activates running animation
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) 
     {
-        if(other.name == "CameraFlash")
+        if(other.name == "CameraFlash") //if the zombie gets hit by camera flash
         {
-            this.transform.position = (spawn.transform.position);
-            print("seen");
-            audioSource.clip = enemySounds[Random.Range(0,4)];
+            this.transform.position = (spawn.transform.position); //teleports back to spawn
+            audioSource.clip = enemySounds[Random.Range(0,4)]; //plays one of the 4 zombie dialogues
             audioSource.Play();
         }
     }

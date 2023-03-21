@@ -10,19 +10,19 @@ public class HealthSystem : MonoBehaviour
     public GameObject halfHealth;
     public GameObject noHealth;
 
+    //lose one health when hit by zombie
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "zombie1")
         {
-
             if (health > 0)
             {
                 --health;
-                
             }
-
         }
     }
+
+    //health indicators
     private void Update()
     {
         if(health == 2)
@@ -37,6 +37,7 @@ public class HealthSystem : MonoBehaviour
             noHealth.SetActive(true);
         }
 
+        //lose screen
         if(health == 0)
         {
             SceneManager.LoadScene("EndScreen");

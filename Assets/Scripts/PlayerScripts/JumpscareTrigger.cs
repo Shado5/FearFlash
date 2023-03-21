@@ -6,6 +6,7 @@ public class JumpscareTrigger : MonoBehaviour
 {
     public Component controller;
 
+    //turns off player movement for jumpscare
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "Trigger")

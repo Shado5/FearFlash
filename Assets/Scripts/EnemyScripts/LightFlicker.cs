@@ -11,14 +11,15 @@ public class LightFlicker : MonoBehaviour
     
     void Start()
     {
-        lampLight = lamp.GetComponent<Light>();
-        lampLight.enabled = isLightOn;
+        lampLight = lamp.GetComponent<Light>(); //calls light component
+        lampLight.enabled = isLightOn; //enables light
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-    
+        timer -= Time.deltaTime;  //starts timer
+        
+        //light flicker effect
         if (timer <= 0f)
         {
             lampLight.enabled = !lampLight.enabled;

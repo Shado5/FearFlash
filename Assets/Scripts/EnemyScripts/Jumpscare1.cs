@@ -15,10 +15,6 @@ public class Jumpscare1 : MonoBehaviour
     [SerializeField] private float _zombietime = 0.7f; //amount of time before black screen
     [SerializeField] private float _SceneChangetime = 0.5f; //amount of time before scene change
 
-    void Awake()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player") //player triggers jumpscare
@@ -31,11 +27,14 @@ public class Jumpscare1 : MonoBehaviour
         }
     }
 
+    //activates black screen
     public IEnumerator TurnOffZombie(float t)
     {
         yield return new WaitForSeconds(t);
         blackScreen.SetActive(true); 
     }
+
+    //scene change
     public IEnumerator SwitchScene(float t)
     {
         yield return new WaitForSeconds(t);

@@ -60,28 +60,30 @@ public class PhotoCapture : MonoBehaviour
 
     private void Start()
     {
+        //turns on list of objects
         UpdateObjectsText();
         backgroundImage.gameObject.SetActive(true);
         objectsText.gameObject.SetActive(true);
 
+        //turns off mesh of invisible items
         screenCapture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
         shadowMonster.SetActive(false);
         wallCrawler.SetActive(false);
         kitchenText.SetActive(false);
         sittingPeople.SetActive(false);
 
+        //starts timer for e prompt
         StartCoroutine(EPrompt(_ePrompt));
+
+        //turns on r prompt
         rToReload.enabled = true;
     }
-
-
 
     private void Update()
     {
         shotsLeftText.text = "Shots left " + shotsLeft; // display the remaining shots
 
-
-
+        //hides UI when e is pressed
         if (Input.GetKeyDown(KeyCode.E))
         {
             showText = !showText;
@@ -90,40 +92,40 @@ public class PhotoCapture : MonoBehaviour
             ePrompt.gameObject.SetActive(false);
         }
 
+        //takes photo
         if (Input.GetMouseButtonDown(0))
         {
             if (shotsLeft > 0) // check if there are shots left
             {
-                
-
                 if (!viewingPhoto && canTakePhoto)
                 {
                     TakePicture();
                     shotsLeft--; // decrement shots left
+                    //starts timers
                     StartCoroutine(GetRidOfPhoto(_getridofphototime));
                     StartCoroutine(CameraFlashEffect());
                     StartCoroutine(CapturePhoto());
                 }
             }
         }
+        //tells you to reload
         if(shotsLeft == 0)
         {
-            print("s");
             rToReload.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
-            
+            //reload timer starts
             if (shotsLeft == 0)
             {
                 rToReload.enabled = false;
                 StartCoroutine(ReloadTime(_reloadTime));
                 reloadBar.SetActive(true);
             }
-
         }
     }
+    //checks if all objects have photos taken
     private void CheckForCompletion()
     {
         if (objectsToTakePicturesOf.Count == 0)
@@ -132,19 +134,17 @@ public class PhotoCapture : MonoBehaviour
             {
                 objectsText.text = "Enter House";
             }
-            
-
-
         }
     }
 
+    //reloads shots
     void Reload()
     {
-        
         shotsLeft = 5;
         reloadBar.SetActive(false);
     }
 
+    //takes picture of object that needs to be photographed
     void TakePicture()
     {
         if (objectsToTakePicturesOf.Count > 0)
@@ -169,11 +169,12 @@ public class PhotoCapture : MonoBehaviour
                     }
                     
                     objectsText.text = objectsTextString;
-                    objectsText.text = "<s>" + hitObject.name + "</s>" + objectsTextString ;
+                    objectsText.text = "<s>" + hitObject.name + "</s>" + objectsTextString ; //crosses out object
                     
 
                 }
 
+                //object does not need a photo
                 else
                 {
                     Debug.Log("Camera not pointed at an object that needs a picture taken.");
@@ -182,13 +183,14 @@ public class PhotoCapture : MonoBehaviour
             }
 
         }
+        //all objects have been photographed
         else
         {
             Debug.Log("All objects have been taken pictures of.");
         }
     }
 
-
+    //removes name when photo is taken
     void UpdateObjectsText()
     {
         string objectsTextString = "\n";
@@ -201,6 +203,7 @@ public class PhotoCapture : MonoBehaviour
         objectsText.text = objectsTextString;
     }
 
+    //shows invisible items when photo is taken
     IEnumerator CapturePhoto()
     {
         //CameraUI Set False
@@ -220,11 +223,9 @@ public class PhotoCapture : MonoBehaviour
         screenCapture.Apply();
         ShowPhoto();
     }
-
+    //displays photo taken
     void ShowPhoto()
     {
-
-
         Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDisplayArea.sprite = photoSprite;
 
@@ -244,22 +245,20 @@ public class PhotoCapture : MonoBehaviour
 
         sittingPeople.SetActive(true);
         sittingPeople.SetActive(false);
-
-        //StartCoroutine(RemovePhotoAfterDelay(5f));
-
     }
+    //removes photo taken
     IEnumerator RemovePhotoAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         RemovePhoto();
     }
-
+    //can take photo after previous one
     IEnumerator ResetCanTakePhotoAfterDelay(float delay)
     {
         yield return new WaitForSeconds(1);
         canTakePhoto = true;
     }
-
+    //camera flash
     IEnumerator CameraFlashEffect()
     {
         cameraAudio.Play();
@@ -267,7 +266,7 @@ public class PhotoCapture : MonoBehaviour
         yield return new WaitForSeconds(flashTime);
         cameraFlash.SetActive(false);
     }
-
+    
     void RemovePhoto()
     {
         viewingPhoto = false;
@@ -281,7 +280,7 @@ public class PhotoCapture : MonoBehaviour
 
         sittingPeople.SetActive(false);
     }
-
+    //removes photo
     public IEnumerator GetRidOfPhoto(float t)
     {
         yield return new WaitForSeconds(t);
@@ -299,25 +298,15 @@ public class PhotoCapture : MonoBehaviour
 
     }
 
-    public IEnumerator RemoveTask(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-    }
-
     public IEnumerator ReloadTime(float t)
     {
         yield return new WaitForSeconds(t);
-
-        
-
         Reload(); // reload the camera
-
     }
     public IEnumerator EPrompt(float t)
     {
         yield return new WaitForSeconds(t);
 
-        ePrompt.gameObject.SetActive(false);
+        ePrompt.gameObject.SetActive(false); //turns off e prompt
     }
 }

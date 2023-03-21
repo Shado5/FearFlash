@@ -46,11 +46,12 @@ public class Controller : MonoBehaviour
     [SerializeField, Range(1, 180)] private float upperLookLimit = 80.0f;
     [SerializeField, Range(1, 180)] private float lowerLookLimit = 80.0f;
 
-
+    //player jump parameters
     [Header("Jumping Parameters")]
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private float gravity = 30.0f;
 
+    //crouch parameters
     [Header("Crouch Parameters")]
     [SerializeField] private float crouchHeight = 0.0f;
     [SerializeField] private float standingHeight = 2f;
@@ -60,6 +61,7 @@ public class Controller : MonoBehaviour
     private bool isCrouching;
     private bool duringCrouchAnimation;
 
+    //headbob parameters
     [Header("Headbob Parameters")]
     [SerializeField] private float walkBobSpeed = 14f;
     [SerializeField] private float walkBobAmount = 0.05f;
@@ -70,6 +72,7 @@ public class Controller : MonoBehaviour
     private float defaultYPos = 0f;
     private float timer;
 
+    //footstep parameters
     [Header("Footstep Parameters")]
     [SerializeField] private float baseStepSpeed = 0.5f;
     [SerializeField] private float crouchStepMultiplier = 1.5f;
@@ -112,22 +115,23 @@ public class Controller : MonoBehaviour
 
     public static Controller instance;
 
+    //turns off cursor
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
     void Awake()
     {
         instance = this;
-        playerCamera = GetComponentInChildren<Camera>();
-        characterController = GetComponent<CharacterController>();
-        defaultYPos = playerCamera.transform.localPosition.y;
-        
-
+        playerCamera = GetComponentInChildren<Camera>(); //calls camera
+        characterController = GetComponent<CharacterController>(); //calls controller
+        defaultYPos = playerCamera.transform.localPosition.y; //defaults y posintion to the camera's one
     }
     void Update()
     {
+        //checks if boolians are true
         if (CanMove)
         {
             ApplyFinalMovements();
@@ -146,6 +150,7 @@ public class Controller : MonoBehaviour
             HandleInteractionCheck();
         }
     }
+    //player movement
     private void HandleMovementInput()
     {
         currentInput = new Vector2((isCrouching ? crouchSpeed : IsSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Vertical"), (isCrouching ? crouchSpeed : IsSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Horizontal"));
@@ -153,6 +158,7 @@ public class Controller : MonoBehaviour
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
     }
+    //camera follows mouse
     private void HandleMouseLook()
     {
         rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
@@ -161,6 +167,7 @@ public class Controller : MonoBehaviour
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
     }
 
+    //checks if player is interacting with interactable object
     private void HandleInteractionCheck()
     {
         if (Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance))
@@ -170,17 +177,17 @@ public class Controller : MonoBehaviour
                 hit.collider.TryGetComponent(out currentInteractable);
                 if (currentInteractable)
                 {
-                    currentInteractable.OnFocus();
+                    currentInteractable.OnFocus(); //looking at interactable object
                 }
             }
         }
         else if (currentInteractable)
         {
-            currentInteractable.OnLoseFocus();
+            currentInteractable.OnLoseFocus();  //not looking at interactable object
             currentInteractable = null;
         }
     }
-
+    //when looking at interactable object and pressing interact button
     private void HandleInteractionInput()
     {
         if (Input.GetKeyDown(interactKey) && currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, interactionLayer))
@@ -189,6 +196,7 @@ public class Controller : MonoBehaviour
         }
     }
 
+    //footsteps
     private void HandleFooststeps()
     {
         if (!characterController.isGrounded) return;
@@ -200,6 +208,7 @@ public class Controller : MonoBehaviour
         {
             if (Physics.Raycast(playerCamera.transform.position, Vector3.down, out RaycastHit hit, 3))
             {
+                //can add multiple surfaces here
                 switch (hit.collider.tag)
                 {
                     case "Ground":
@@ -226,18 +235,22 @@ public class Controller : MonoBehaviour
 
         characterController.Move(moveDirection * Time.deltaTime);
     }
+
+    //allows player to jump
     private void HandleJump()
     {
         if (ShouldJump)
             moveDirection.y = jumpForce;
     }
 
+    //allows player to crouch
     private void HandleCrouch()
     {
         if (ShouldCrouch)
             StartCoroutine(CrouchStand());
     }
 
+    //toggles crouch on and off
     private IEnumerator CrouchStand()
     {
         if (isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f))
@@ -265,6 +278,8 @@ public class Controller : MonoBehaviour
 
         duringCrouchAnimation = false;
     }
+
+    //allows for headbob
     private void HandleHeadbob()
     {
         if (!characterController.isGrounded) return;

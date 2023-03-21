@@ -40,7 +40,7 @@ public class TextAudioPlayer : MonoBehaviour
             }
             else
             {
-                // All lines have been played, do something else here
+                
             }
         }
     }

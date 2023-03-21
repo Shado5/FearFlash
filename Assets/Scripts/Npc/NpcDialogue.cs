@@ -9,17 +9,10 @@ public class NpcDialogue : MonoBehaviour
     public AudioSource audioSource;
     public GameObject npcText;
 
-    private void Start()
-    {
-            //npcText = npcText.GetComponent<TextMeshProUGUI>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            Debug.Log("entered");
-            
+        {            
             //npcText.text = dialogueText;
             audioSource.Play();
             npcText.SetActive(true);
@@ -28,6 +21,7 @@ public class NpcDialogue : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        //diactives npc's text
         npcText.SetActive(false);
     }
 }
