@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jumpscare1 : MonoBehaviour
 {
@@ -8,17 +9,20 @@ public class Jumpscare1 : MonoBehaviour
     Animator zombieAnimator;
     public int speed;
     public AudioSource screech;
+    public Transform target;
+   
 
-    public GameObject light;
-    Animator lightAnimator;
+    
+    
 
     [SerializeField] private float _zombietime = 0.7f;
-    [SerializeField] private float _lighttime = 0.5f;
+    [SerializeField] private float _SceneChangetime = 0.5f;
 
     void Awake()
     {
         zombieAnimator = zombie.GetComponent<Animator>();
-        lightAnimator = light.GetComponent<Animator>();
+        
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,7 +31,8 @@ public class Jumpscare1 : MonoBehaviour
             zombieAnimator.SetBool("IsRunning", true);
             screech.Play();
             StartCoroutine(TurnOffZombie(_zombietime));
-            StartCoroutine(TurnOffLight(_lighttime));
+            StartCoroutine(SwitchScene(_SceneChangetime));
+           
         }
        
     }
@@ -36,7 +41,8 @@ public class Jumpscare1 : MonoBehaviour
     {
         if (zombieAnimator.GetBool("IsRunning"))
         {
-            zombie.transform.position += -transform.forward * speed * Time.deltaTime;
+            
+            zombie.transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         
     }
@@ -46,10 +52,10 @@ public class Jumpscare1 : MonoBehaviour
         zombie.SetActive(false);
         zombieAnimator.SetBool("IsRunning", false);
     }
-    public IEnumerator TurnOffLight(float t)
+    public IEnumerator SwitchScene(float t)
     {
         yield return new WaitForSeconds(t);
-        lightAnimator.SetBool("ScareOver", true);
+        SceneManager.LoadScene("Level2");
 
     }
 }
