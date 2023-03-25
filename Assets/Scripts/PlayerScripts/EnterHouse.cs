@@ -9,6 +9,11 @@ public class EnterHouse : Interactable
     public Transform teleportTarget;
     public GameObject thePlayer;
 
+    public Animator fadeOut;
+    public AudioSource door;
+
+    [SerializeField] private float _enter = 3f;
+
     //looking at door
     public override void OnFocus()
     {
@@ -18,13 +23,22 @@ public class EnterHouse : Interactable
     //interacts with door
     public override void OnInteract()
     {
-        SceneManager.LoadScene("Interior");
-      
+        fadeOut.SetTrigger("EntersHouse");
+        door.Play();
+        StartCoroutine(Enter(_enter));
+
     }
 
     //looks away from door
     public override void OnLoseFocus()
     {
         prompt.SetActive(false);
+    }
+
+    public IEnumerator Enter(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        SceneManager.LoadScene("Interior");
     }
 }
