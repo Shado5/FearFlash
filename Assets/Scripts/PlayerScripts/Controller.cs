@@ -23,7 +23,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private bool willSlide = true;
     [SerializeField] private bool canInteract = true;
     [SerializeField] private bool useFootseps = true;
-    [SerializeField] private bool CanLook = true;
+    [SerializeField] public bool CanLook = true;
 
     //allows the change of controls in inspector
     [Header("Controls")]
