@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
@@ -87,6 +88,15 @@ public class Controller : MonoBehaviour
 
     //sliding parameters
     private Vector3 hitPointNormal;
+
+    public float playerStamina = 100f;
+    public float maxStamina = 100f;
+    public bool hasRegenerated = true;
+    public float staminaDrain = 15f;
+    public float staminaRegain = 15f;
+    public Image staminaProgressUI = null;
+    public CanvasGroup sliderCanvasGroup = null;
+    
     private bool isSliding
     {
         get
@@ -118,7 +128,7 @@ public class Controller : MonoBehaviour
 
     public static Controller instance;
 
-    [SerializeField] private float stamina = 10f;
+    
     
 
     //turns off cursor
@@ -157,6 +167,16 @@ public class Controller : MonoBehaviour
                 HandleMouseLook();
             HandleInteractionCheck();
         }
+
+        if (IsSprinting)
+        {
+            if (playerStamina > 0)
+            {
+                Sprinting();
+
+            }
+            
+        }
     }
     //player movement
     private void HandleMovementInput()
@@ -166,11 +186,55 @@ public class Controller : MonoBehaviour
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
 
-        //while (IsSprinting)
-        //{
-            
-        //}
+        
+        if (!IsSprinting)
+        {
+            if(playerStamina <= maxStamina - 0.01)
+            {
+                playerStamina += staminaRegain * Time.deltaTime; //update stamina
+                UpdateStamina(1);
+
+                if(playerStamina >= maxStamina)
+                {
+                    canSprint = true;
+                    hasRegenerated = true;
+                    sliderCanvasGroup.alpha = 0;
+                }
+            }
+        }
     }
+
+    public void Sprinting()
+    {
+        if (hasRegenerated)
+        {
+            IsSprinting.Equals(true);
+            playerStamina -= staminaDrain * Time.deltaTime;
+            UpdateStamina(1);
+            
+
+            if (playerStamina <= 0)
+            {
+                hasRegenerated = false;
+                canSprint = false;
+                sliderCanvasGroup.alpha = 0;
+            }
+        }
+    }
+    void UpdateStamina(int value)
+    {
+        staminaProgressUI.fillAmount = playerStamina / maxStamina;
+
+        if(value == 0)
+        {
+            sliderCanvasGroup.alpha = 0;
+        }
+        else
+        {
+            sliderCanvasGroup.alpha = 1;
+        }
+    }
+
     //camera follows mouse
     private void HandleMouseLook()
     {

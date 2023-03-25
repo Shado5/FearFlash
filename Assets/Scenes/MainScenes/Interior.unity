@@ -27778,13 +27778,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5493ad60f45e6949a92a2dbae0746dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSprint: 1
+  canSprint: 0
   canJump: 0
   canCrouch: 0
   canUseHeadbob: 1
   willSlide: 0
   canInteract: 1
   useFootseps: 1
+  CanLook: 1
   sprintKey: 304
   jumpKey: 32
   crouchKey: 306
@@ -27818,6 +27819,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c5134b5bb52146c48934e2e1aa1e3c0b, type: 3}
   - {fileID: 8300000, guid: 94a73c3470e00d74797e9d1a3ff54de3, type: 3}
   - {fileID: 8300000, guid: ed553534ad6667e448b617cb6ec73205, type: 3}
+  playerStamina: 100
+  maxStamina: 100
+  hasRegenerated: 1
+  staminaDrain: 15
+  staminaRegain: 15
+  staminaProgressUI: {fileID: 0}
+  sliderCanvasGroup: {fileID: 0}
   interactionRayPoint: {x: 0.5, y: 0.5, z: 0}
   interactionDistance: 3
   interactionLayer:
