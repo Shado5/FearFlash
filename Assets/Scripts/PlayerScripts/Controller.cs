@@ -166,10 +166,10 @@ public class Controller : MonoBehaviour
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
 
-        while (IsSprinting)
-        {
-            --stamina;
-        }
+        //while (IsSprinting)
+        //{
+            
+        //}
     }
     //camera follows mouse
     private void HandleMouseLook()
