@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    private Controller controller;
+    
 
-    private void Start()
-    {
-       controller.GetComponent<Controller>();
-    }
+   
     //turns pause menu on and off
     void Update()
     {
@@ -30,6 +27,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            
         }
         //freezes game
         else
@@ -38,7 +36,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            controller.CanLook = false;
+            
         }
     }
     //restarts current level
@@ -49,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Restarted");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     //quit game
@@ -63,6 +62,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         Debug.Log("At Main Menu");
-
+        
     }
 }

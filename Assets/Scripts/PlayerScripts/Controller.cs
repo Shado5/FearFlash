@@ -39,6 +39,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private float sprintSpeed = 6.0f;
     [SerializeField] private float crouchSpeed = 1.5f;
     [SerializeField] private float slopeSpeed = 8f;
+    
 
 
     //how far the player can look
@@ -117,6 +118,9 @@ public class Controller : MonoBehaviour
 
     public static Controller instance;
 
+    [SerializeField] private float stamina = 10f;
+    
+
     //turns off cursor
     private void Start()
     {
@@ -161,6 +165,11 @@ public class Controller : MonoBehaviour
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
+
+        while (IsSprinting)
+        {
+            --stamina;
+        }
     }
     //camera follows mouse
     private void HandleMouseLook()
@@ -295,6 +304,6 @@ public class Controller : MonoBehaviour
             playerCamera.transform.localPosition.x, defaultYPos + Mathf.Sin(timer) * (isCrouching ? crouchBobAmount : IsSprinting ? sprintBobAmount : walkBobAmount), playerCamera.transform.localPosition.z);
         }
     }
- 
+    
 
 }
