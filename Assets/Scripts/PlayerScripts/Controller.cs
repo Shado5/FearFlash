@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     private bool ShouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded;
     private bool ShouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
 
+    
 
     //gives ability to turn them on and off in the inspector 
     [Header("Functional Options")]
@@ -22,6 +23,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private bool willSlide = true;
     [SerializeField] private bool canInteract = true;
     [SerializeField] private bool useFootseps = true;
+    [SerializeField] private bool CanLook = true;
 
     //allows the change of controls in inspector
     [Header("Controls")]
@@ -136,7 +138,7 @@ public class Controller : MonoBehaviour
         {
             ApplyFinalMovements();
             HandleMovementInput();
-            HandleMouseLook();
+           
             if (canJump)
                 HandleJump();
             if (canCrouch)
@@ -147,6 +149,8 @@ public class Controller : MonoBehaviour
                 HandleFooststeps();
             if (canInteract)
                 HandleInteractionInput();
+            if (CanLook)
+                HandleMouseLook();
             HandleInteractionCheck();
         }
     }

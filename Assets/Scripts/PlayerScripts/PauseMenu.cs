@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject player;
+
 
     //turns pause menu on and off
     void Update()
@@ -33,6 +35,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            player.SetActive(false);
         }
     }
     //restarts current level

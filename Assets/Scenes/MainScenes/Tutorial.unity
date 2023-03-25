@@ -3907,6 +3907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1303186228}
+  player: {fileID: 0}
 --- !u!4 &1313382442
 Transform:
   m_ObjectHideFlags: 0
@@ -6837,6 +6838,7 @@ MonoBehaviour:
   willSlide: 0
   canInteract: 1
   useFootseps: 1
+  CanLook: 1
   sprintKey: 304
   jumpKey: 32
   crouchKey: 306
