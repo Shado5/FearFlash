@@ -46,7 +46,7 @@ public class PhotoCapture : MonoBehaviour
     public Camera mainCamera;
 
     public TMP_Text objectsText;
-    public Image backgroundImage;
+    public GameObject backgroundImage;
     public TMP_Text shotsLeftText;
     public GameObject reloadBar;
     public TMP_Text rToReload;
