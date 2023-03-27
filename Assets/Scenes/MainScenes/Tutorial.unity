@@ -2434,7 +2434,7 @@ GameObject:
   - component: {fileID: 875168226}
   - component: {fileID: 875168225}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2874,7 +2874,7 @@ MonoBehaviour:
   reloadBar: {fileID: 1237534197}
   rToReload: {fileID: 166910041}
   ePrompt: {fileID: 914729133}
-  gameObjectToDisable: {fileID: 0}
+  gameObjectToDisable: {fileID: 875168223}
 --- !u!1 &1124392614
 GameObject:
   m_ObjectHideFlags: 0
