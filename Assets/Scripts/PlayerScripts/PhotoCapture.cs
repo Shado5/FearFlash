@@ -36,6 +36,8 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private float _reloadTime = 3f;
     [SerializeField] private float _ePrompt = 15f;
     [SerializeField] private float _removeTask = 3f;
+    [SerializeField] private float _takePhototime = 0.1f;
+    [SerializeField] private float _showUI = 0.1f;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -58,6 +60,9 @@ public class PhotoCapture : MonoBehaviour
 
     private int shotsLeft = 5;
 
+    public GameObject[] otherUI;
+    public GameObject[] UIsometimesActive;
+
     private void Start()
     {
         //turns on list of objects
@@ -77,6 +82,7 @@ public class PhotoCapture : MonoBehaviour
 
         //turns on r prompt
         rToReload.enabled = true;
+
     }
 
     private void Update()
@@ -99,12 +105,24 @@ public class PhotoCapture : MonoBehaviour
             {
                 if (!viewingPhoto && canTakePhoto)
                 {
-                    TakePicture();
-                    shotsLeft--; // decrement shots left
-                    //starts timers
-                    StartCoroutine(GetRidOfPhoto(_getridofphototime));
-                    StartCoroutine(CameraFlashEffect());
-                    StartCoroutine(CapturePhoto());
+                    if (showText)
+                    {
+                        showText = !showText;
+                        backgroundImage.gameObject.SetActive(showText);
+                        objectsText.gameObject.SetActive(showText);
+                        ePrompt.gameObject.SetActive(false);
+                        
+                    }
+                    for (int i = 0; i < otherUI.Length; i++)
+                    {
+                        otherUI[i].SetActive(false);
+                    }
+                    for (int i = 0; i < UIsometimesActive.Length; i++)
+                    {
+                        UIsometimesActive[i].SetActive(false);
+                    }
+
+                    StartCoroutine(TakePhoto(_takePhototime));
                 }
             }
         }
@@ -201,6 +219,7 @@ public class PhotoCapture : MonoBehaviour
             
         }
         objectsText.text = objectsTextString;
+
     }
 
     //shows invisible items when photo is taken
@@ -251,6 +270,10 @@ public class PhotoCapture : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         RemovePhoto();
+        UpdateObjectsText();
+        backgroundImage.gameObject.SetActive(true);
+        objectsText.gameObject.SetActive(true);
+
     }
     //can take photo after previous one
     IEnumerator ResetCanTakePhotoAfterDelay(float delay)
@@ -308,5 +331,31 @@ public class PhotoCapture : MonoBehaviour
         yield return new WaitForSeconds(t);
 
         ePrompt.gameObject.SetActive(false); //turns off e prompt
+    }
+    public IEnumerator TakePhoto(float t)
+    {
+        yield return new WaitForSeconds(t);
+        
+        TakePicture();
+        shotsLeft--; // decrement shots left
+                     //starts timers
+        StartCoroutine(GetRidOfPhoto(_getridofphototime));
+        StartCoroutine(CameraFlashEffect());
+        StartCoroutine(CapturePhoto());
+
+        StartCoroutine(ShowUI(_showUI));
+    }
+    public IEnumerator ShowUI(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        showText = !showText;
+        backgroundImage.gameObject.SetActive(showText);
+        objectsText.gameObject.SetActive(showText);
+        ePrompt.gameObject.SetActive(false);
+        for (int i = 0; i < otherUI.Length; i++)
+        {
+            otherUI[i].SetActive(true);
+        }
     }
 }
