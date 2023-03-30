@@ -26,6 +26,19 @@ public class ButtonClickHandler : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        // Check if Escape key is pressed and panel is active
+        if (Input.GetKeyDown(KeyCode.Escape) && panelIsActive)
+        {
+            // Deactivate panel
+            Controlpanel.SetActive(false);
+
+            // Set panelIsActive to false
+            panelIsActive = false;
+        }
+    }
+
     public void OnClick()
     {
         // Play click sound
