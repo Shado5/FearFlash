@@ -1279,6 +1279,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7419943797c18f240b11f08939f2702b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d266becf3a9cc7042bac23a641e4d418, type: 3}
+--- !u!1 &494500447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2744560900802847803, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+  m_PrefabInstance: {fileID: 5735038017907863231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &504247281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,8 +2736,10 @@ MonoBehaviour:
   otherUI:
   - {fileID: 47351847}
   - {fileID: 550849277}
+  - {fileID: 494500447}
   UIsometimesActive:
   - {fileID: 1954598520}
+  - {fileID: 1239270728}
 --- !u!1 &1124392614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,6 +8347,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 914729132, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1974294828, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
       propertyPath: sliderCanvasGroup
       value: 
@@ -8348,6 +8359,10 @@ PrefabInstance:
       propertyPath: staminaProgressUI
       value: 
       objectReference: {fileID: 612646224}
+    - target: {fileID: 2577193924959650755, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8246774551678487556, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
       propertyPath: m_RootOrder
       value: 5
