@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            //player.CanLook = true;
+            player.CanLook = true;
         }
         //freezes game
         else
@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            //player.CanLook = false;
+            player.CanLook = false;
 
         }
     }
