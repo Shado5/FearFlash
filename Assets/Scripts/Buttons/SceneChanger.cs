@@ -8,7 +8,7 @@ public class SceneChanger : MonoBehaviour
     //loads tutorial scene
     public void Tutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Cutscene");
     }
 
     //quits game

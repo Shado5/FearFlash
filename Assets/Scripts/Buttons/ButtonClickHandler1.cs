@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonClickHandler : MonoBehaviour
+public class ButtonClickHandler1 : MonoBehaviour
 {
     public AudioSource clickSound;
-    public GameObject Controlpanel;
+    public GameObject Levelpanel;
 
     private Button button;
     private bool panelIsActive;
@@ -19,7 +19,7 @@ public class ButtonClickHandler : MonoBehaviour
         button.onClick.AddListener(OnClick);
 
         // Set panel to inactive at the start
-        Controlpanel.SetActive(false);
+        Levelpanel.SetActive(false);
 
         // Set panelIsActive to false at the start
         panelIsActive = false;
@@ -34,6 +34,6 @@ public class ButtonClickHandler : MonoBehaviour
         panelIsActive = !panelIsActive;
 
         // Activate or deactivate panel based on panelIsActive
-        Controlpanel.SetActive(panelIsActive);
+        Levelpanel.SetActive(panelIsActive);
     }
 }
