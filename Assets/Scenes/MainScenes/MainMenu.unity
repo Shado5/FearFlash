@@ -746,6 +746,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1098044290}
+        m_TargetAssemblyTypeName: LevelsButton, Assembly-CSharp
+        m_MethodName: Interior
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &97549303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,6 +1080,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1098044290}
+        m_TargetAssemblyTypeName: LevelsButton, Assembly-CSharp
+        m_MethodName: Level2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3113,6 +3137,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1098044290}
+        m_TargetAssemblyTypeName: LevelsButton, Assembly-CSharp
+        m_MethodName: Tutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819176211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4413,6 +4449,7 @@ GameObject:
   - component: {fileID: 1098044284}
   - component: {fileID: 1098044288}
   - component: {fileID: 1098044289}
+  - component: {fileID: 1098044290}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4510,6 +4547,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSound: {fileID: 984384767}
   Levelpanel: {fileID: 1509378305}
+--- !u!114 &1098044290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098044283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908c4ceac4c5dfb46be0a667b7c2f503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1113884392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3857986766125389588, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
