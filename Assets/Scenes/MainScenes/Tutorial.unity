@@ -3807,6 +3807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1303186228}
+  player: {fileID: 1974294813}
 --- !u!4 &1313382442
 Transform:
   m_ObjectHideFlags: 0

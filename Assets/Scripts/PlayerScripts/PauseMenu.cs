@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,20 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    
+    public Controller player;
 
-   
+    private void Start()
+    {
+        player.GetComponent<Controller>();
+    }
+
     //turns pause menu on and off
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
+            
         }
     }
     
@@ -27,7 +33,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            
+            //player.CanLook = true;
         }
         //freezes game
         else
@@ -36,7 +42,8 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            
+            //player.CanLook = false;
+
         }
     }
     //restarts current level
