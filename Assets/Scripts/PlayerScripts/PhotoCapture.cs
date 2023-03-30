@@ -105,14 +105,7 @@ public class PhotoCapture : MonoBehaviour
             {
                 if (!viewingPhoto && canTakePhoto)
                 {
-                    if (showText)
-                    {
-                        //showText = !showText;
-                        //backgroundImage.gameObject.SetActive(showText);
-                        //objectsText.gameObject.SetActive(showText);
-                        //ePrompt.gameObject.SetActive(false);
-                        
-                    }
+                    
                     for (int i = 0; i < otherUI.Length; i++)
                     {
                         otherUI[i].SetActive(false);
@@ -349,10 +342,6 @@ public class PhotoCapture : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        //showText = !showText;
-        //backgroundImage.gameObject.SetActive(showText);
-        //objectsText.gameObject.SetActive(showText);
-        //ePrompt.gameObject.SetActive(false);
         for (int i = 0; i < otherUI.Length; i++)
         {
             otherUI[i].SetActive(true);
