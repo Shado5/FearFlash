@@ -4868,7 +4868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4229208227961970111, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
       propertyPath: m_Name
-      value: -Trash
+      value: '- Trash'
       objectReference: {fileID: 0}
     - target: {fileID: 4275220315832183856, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4936,7 +4936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7080388446732655757, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
       propertyPath: m_Name
-      value: -Popcorn
+      value: '- Popcorn Machine'
       objectReference: {fileID: 0}
     - target: {fileID: 7197678919635001844, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
       propertyPath: m_IsActive
@@ -7807,8 +7807,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.017388431, y: 0.013278084, z: 0.028367903}
-  m_Center: {x: -0.0013245123, y: -0.0011344242, z: -0.00065321446}
+  m_Size: {x: 0.005745931, y: 0.009828162, z: 0.028367903}
+  m_Center: {x: 0.001140883, y: 0.0005905375, z: -0.0006532144}
 --- !u!4 &1540166437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280318594166633455, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
