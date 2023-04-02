@@ -15,7 +15,7 @@ public class EnemyAi : MonoBehaviour
 
     public float _chasePlayer = 20f;
     // Update is called once per frame
-    void Start()
+    public void FixedUpdate()
     {
         agent.SetDestination(player.transform.position); //sets detination of zomie to the player
         anim.SetBool("IsRunning", true); //activates running animation
