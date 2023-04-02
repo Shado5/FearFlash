@@ -6503,6 +6503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1354486884}
+  - component: {fileID: 1354486885}
   m_Layer: 0
   m_Name: Monster Spawn
   m_TagString: Untagged
@@ -6518,13 +6519,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354486883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.12, y: 0.61, z: 28.04}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 35.93, y: 0.304, z: 23.46}
+  m_LocalScale: {x: 2.6529, y: 2.9097, z: 3.874}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1354486885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354486883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1354498725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2843982510268480242, guid: c0b3fd673cf1ed24caa4e511591428e0, type: 3}
@@ -9807,15 +9821,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.824
+      value: 32.25
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.329
+      value: 0.304
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.325
+      value: 23.46
       objectReference: {fileID: 0}
     - target: {fileID: 642479743543790817, guid: b380a431b0e55804e8f7b61246af6daa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10642,8 +10656,8 @@ MonoBehaviour:
   ePrompt: {fileID: 2000121790}
   gameObjectToDisable: {fileID: 1265221252}
   otherUI:
-  - {fileID: 2102826442}
   - {fileID: 814246792}
+  - {fileID: 2102826442}
   UIsometimesActive: []
 --- !u!114 &1938761101
 MonoBehaviour:
@@ -11310,12 +11324,12 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &2102826446
 RectTransform:

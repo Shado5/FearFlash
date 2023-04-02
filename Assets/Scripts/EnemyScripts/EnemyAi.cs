@@ -12,23 +12,30 @@ public class EnemyAi : MonoBehaviour
     public GameObject spawn;
     public AudioSource audioSource;
     public AudioClip[] enemySounds;
-    
 
+    public float _chasePlayer = 20f;
     // Update is called once per frame
-    void Update()
+    void Start()
     {
         agent.SetDestination(player.transform.position); //sets detination of zomie to the player
         anim.SetBool("IsRunning", true); //activates running animation
 
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "CameraFlash") //if the zombie gets hit by camera flash
+        if (other.name == "CameraFlash") //if the zombie gets hit by camera flash
         {
-            this.transform.position = (spawn.transform.position); //teleports back to spawn
-            audioSource.clip = enemySounds[Random.Range(0,4)]; //plays one of the 4 zombie dialogues
+            agent.SetDestination(spawn.transform.position); //teleports back to spawn
+            audioSource.clip = enemySounds[Random.Range(0, 4)]; //plays one of the 4 zombie dialogues
             audioSource.Play();
+            StartCoroutine(ChasePlayer(_chasePlayer));
         }
-    }
+       
+   }
 
+    public IEnumerator ChasePlayer(float t)
+    {
+        yield return new WaitForSeconds(t);
+        agent.SetDestination(player.transform.position);
+    }
 }
