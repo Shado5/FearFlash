@@ -15,10 +15,12 @@ public class HealthSystem : MonoBehaviour
     private float bloodSplatterStartTime = 0f;
     private float bloodSplatterMaxTime = 0.2f;
 
+    public Animator healthBar;
+
     //lose one health when hit by zombie
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "zombie1")
+        if (other.name == "zombie1")
         {
             if (health > 0)
             {
@@ -40,25 +42,23 @@ public class HealthSystem : MonoBehaviour
         if (health == 2)
         {
             halfHealth.SetActive(true);
-            fullHealth.SetActive(false);
-            
+            healthBar.SetTrigger("HitOnce");
         }
 
         if (health == 1)
         {
+            healthBar.SetTrigger("HitTwice");
             halfHealth.SetActive(false);
             noHealth.SetActive(true);
-            
+
         }
 
         //lose screen
-        if(health == 0)
+        if (health == 0)
         {
             SceneManager.LoadScene("EndScreen");
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
     }
-
- 
 }
