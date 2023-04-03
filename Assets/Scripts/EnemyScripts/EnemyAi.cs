@@ -9,17 +9,28 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     
-    public GameObject spawn;
+    public Transform spawn;
     public AudioSource audioSource;
     public AudioClip[] enemySounds;
 
-    public float _chasePlayer = 20f;
-    // Update is called once per frame
-    public void FixedUpdate()
-    {
-        agent.SetDestination(player.transform.position); //sets detination of zomie to the player
-        anim.SetBool("IsRunning", true); //activates running animation
+    public bool hasHitTrigger = false; //checks if player has hit enemy with flash
 
+    public void Update()
+    {
+        if (!hasHitTrigger)
+        {
+            agent.SetDestination(player.transform.position); //sets detination of zombie to the player
+        }
+        if (hasHitTrigger)
+        {
+            agent.SetDestination(spawn.transform.position);//sets detination of zombie to the spawn
+        }
+        if(agent.transform.position == spawn.position)
+        {
+            hasHitTrigger = false; //sets detination of zombie back to the player when they've hit spawn
+        }
+        anim.SetBool("IsRunning", true); //activates running animation
+       
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -28,14 +39,9 @@ public class EnemyAi : MonoBehaviour
             agent.SetDestination(spawn.transform.position); //teleports back to spawn
             audioSource.clip = enemySounds[Random.Range(0, 4)]; //plays one of the 4 zombie dialogues
             audioSource.Play();
-            StartCoroutine(ChasePlayer(_chasePlayer));
+            hasHitTrigger = true;
         }
        
+        
    }
-
-    public IEnumerator ChasePlayer(float t)
-    {
-        yield return new WaitForSeconds(t);
-        agent.SetDestination(player.transform.position);
-    }
 }
