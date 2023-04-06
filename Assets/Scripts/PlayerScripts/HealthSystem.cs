@@ -16,6 +16,7 @@ public class HealthSystem : MonoBehaviour
     private float bloodSplatterMaxTime = 0.2f;
 
     public Animator healthBar;
+    public AudioSource damageSound;
 
     //lose one health when hit by zombie
     private void OnTriggerEnter(Collider other)
@@ -27,6 +28,7 @@ public class HealthSystem : MonoBehaviour
                 --health;
                 bloodSplatterAnimator.SetTrigger("Hit");
                 bloodSplatterStartTime = Time.time;
+                damageSound.Play();
             }
         }
     }
