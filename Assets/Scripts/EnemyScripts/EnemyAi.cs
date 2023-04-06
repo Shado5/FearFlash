@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
-    public GameObject player;
-    public NavMeshAgent agent;
-    public Animator anim;
+    public GameObject player; //enemy target
+    public NavMeshAgent agent; 
+    public Animator anim; 
     
-    public Transform spawn;
+    public Transform spawn; 
     public AudioSource audioSource;
     public AudioClip[] enemySounds;
 
