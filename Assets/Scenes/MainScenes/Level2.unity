@@ -1337,6 +1337,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 415633315, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0036621094
+      objectReference: {fileID: 0}
+    - target: {fileID: 415633315, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00024414062
+      objectReference: {fileID: 0}
     - target: {fileID: 914729133, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
       propertyPath: m_fontColor.a
       value: 0
@@ -1353,6 +1361,46 @@ PrefabInstance:
       propertyPath: staminaProgressUI
       value: 
       objectReference: {fileID: 1565900038}
+    - target: {fileID: 3748251529125385933, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Color.a
+      value: 0.011764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329197936097192656, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Name
+      value: ScrollArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593884946672352608, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593884946672352608, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593884946672352608, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869850607158606332, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223006901504041031, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Size
+      value: 0.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223006901504041031, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223006901504041031, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7223006901504041031, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
+      propertyPath: m_Navigation.m_WrapAround
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8246774551678487556, guid: c99485e1875dd1d489f3399877b4d870, type: 3}
       propertyPath: m_RootOrder
       value: 5
