@@ -180,7 +180,6 @@ public class PhotoCapture : MonoBehaviour
                     }
                     
                     objectsText.text = objectsTextString;
-                    objectsText.text = "<s>" + hitObject.name + "</s>" + objectsTextString ; //crosses out object
                     
 
                 }
