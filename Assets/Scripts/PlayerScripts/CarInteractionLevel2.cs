@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class CarInteractionLevel2 : Interactable
 {
-    public GameObject prompt;
+    public GameObject prompt; //q to enter truck prompt
 
     //when looking at truck
     public override void OnFocus()
     {
-        prompt.SetActive(true);
+        prompt.SetActive(true); 
     }
 
     public override void OnInteract()
