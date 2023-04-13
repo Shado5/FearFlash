@@ -2222,7 +2222,6 @@ MonoBehaviour:
   walkSpeed: 3
   sprintSpeed: 6
   crouchSpeed: 1.5
-  slopeSpeed: 8
   lookSpeedX: 2
   lookSpeedY: 2
   upperLookLimit: 80
