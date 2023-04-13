@@ -15,7 +15,9 @@ public class CarInteractionLevel2 : Interactable
 
     public override void OnInteract()
     {
-        SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene("EndCutscene");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     //when looking away from truck

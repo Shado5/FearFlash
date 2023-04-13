@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneOver : MonoBehaviour
 {
-    public float _cutsceneTime = 30f; //length of cutscene
+    public float _cutsceneTime; //length of cutscene
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class CutsceneOver : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
