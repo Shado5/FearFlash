@@ -33,7 +33,7 @@ public class HealthSystem : MonoBehaviour
                 bloodSplatterAnimator.SetTrigger("Hit");
                 bloodSplatterStartTime = Time.time;
                 damageSound.Play();
-               zombie.hasHitTrigger = true;
+                zombie.hasHitTrigger = true;
             }
         }
         
