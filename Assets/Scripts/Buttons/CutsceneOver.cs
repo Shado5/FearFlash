@@ -17,7 +17,16 @@ public class CutsceneOver : MonoBehaviour
     public IEnumerator CutSceneTime(float t)
     {
         yield return new WaitForSeconds(t);
+        if (SceneManager.GetActiveScene().buildIndex.Equals(6))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+       
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 }
