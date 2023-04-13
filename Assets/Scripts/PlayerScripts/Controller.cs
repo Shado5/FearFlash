@@ -6,14 +6,12 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class Controller : MonoBehaviour
 {
+    public bool CanMove { get; private set; } = true; //conditions to be able to move
+    private bool IsSprinting => canSprint && Input.GetKey(sprintKey); //conditions to be able to sprint
+    private bool ShouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded; //conditions to be able to jump
+    private bool ShouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded; //conditions to be able to crouch
 
-    //conditions for each function
-    public bool CanMove { get; private set; } = true;
-    private bool IsSprinting => canSprint && Input.GetKey(sprintKey);
-    private bool ShouldJump => Input.GetKeyDown(jumpKey) && characterController.isGrounded;
-    private bool ShouldCrouch => Input.GetKeyDown(crouchKey) && !duringCrouchAnimation && characterController.isGrounded;
 
-    
 
     //gives ability to turn them on and off in the inspector 
     [Header("Functional Options")]
@@ -34,12 +32,12 @@ public class Controller : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.Q;
 
 
-    //speed of everything
+    
     [Header("Movement Parameters")]
-    [SerializeField] private float walkSpeed = 3.0f;
-    [SerializeField] private float sprintSpeed = 6.0f;
-    [SerializeField] private float crouchSpeed = 1.5f;
-    [SerializeField] private float slopeSpeed = 8f;
+    [SerializeField] private float walkSpeed = 3.0f;    //walk speed
+    [SerializeField] private float sprintSpeed = 6.0f;  //sprint speed
+    [SerializeField] private float crouchSpeed = 1.5f;  //crouch speed
+    
     
 
 
@@ -84,11 +82,10 @@ public class Controller : MonoBehaviour
     [SerializeField] private AudioSource footstepAudioSource = default;
     [SerializeField] private AudioClip[] groundClips = default;
     private float footstepTimer = 0;
-    private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultiplier : IsSprinting ? baseStepSpeed * sprintStepMultiplier : baseStepSpeed;
+    private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultiplier : IsSprinting ? baseStepSpeed * sprintStepMultiplier : baseStepSpeed; //sets speed of footsteps depending on speed of player
 
-    //sliding parameters
-    private Vector3 hitPointNormal;
-
+    //stamina parameters
+    [Header("Stamina Parameters")]
     public float playerStamina = 100f;
     public float maxStamina = 100f;
     public bool hasRegenerated = true;
@@ -96,22 +93,6 @@ public class Controller : MonoBehaviour
     public float staminaRegain = 15f;
     public Image staminaProgressUI = null;
     public CanvasGroup sliderCanvasGroup = null;
-    
-    private bool isSliding
-    {
-        get
-        {
-            if (characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 2f))
-            {
-                hitPointNormal = slopeHit.normal;
-                return Vector3.Angle(hitPointNormal, Vector3.up) > characterController.slopeLimit;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
 
     [Header("Interaction")]
     [SerializeField] private Vector3 interactionRayPoint = default;
@@ -127,9 +108,6 @@ public class Controller : MonoBehaviour
     private float rotationX = 0;
 
     public static Controller instance;
-
-    
-    
 
     //turns off cursor
     private void Start()
@@ -206,18 +184,19 @@ public class Controller : MonoBehaviour
 
     public void Sprinting()
     {
+        //if stamina is full
         if (hasRegenerated)
         {
-            IsSprinting.Equals(true);
-            playerStamina -= staminaDrain * Time.deltaTime;
-            UpdateStamina(1);
-            
+            IsSprinting.Equals(true); //player is sprinting
+            playerStamina -= (staminaDrain * Time.deltaTime); //stamina begins draining
+            UpdateStamina(1); //updates stamina bar
 
+            //if player doesnt have stamina
             if (playerStamina <= 0)
             {
-                hasRegenerated = false;
-                canSprint = false;
-                sliderCanvasGroup.alpha = 0;
+                hasRegenerated = false; //stamina has not regenerated
+                canSprint = false; //player cannot sprint
+                sliderCanvasGroup.alpha = 0; //slider is empty
             }
         }
     }
@@ -305,10 +284,6 @@ public class Controller : MonoBehaviour
     {
         if (!characterController.isGrounded)
             moveDirection.y -= gravity * Time.deltaTime;
-
-
-        if (willSlide && isSliding)
-            moveDirection = new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
     }

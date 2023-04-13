@@ -30,7 +30,7 @@ public class EnemyAi : MonoBehaviour
             hasHitTrigger = false; //sets detination of zombie back to the player when they've hit spawn
         }
         anim.SetBool("IsRunning", true); //activates running animation
-       
+        
     }
     private void OnTriggerEnter(Collider other)
     {

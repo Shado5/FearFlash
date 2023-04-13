@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,9 @@ public class HealthSystem : MonoBehaviour
     public Animator healthBar;
     public AudioSource damageSound;
 
+    public EnemyAi zombie;
+
+
     //lose one health when hit by zombie
     private void OnTriggerEnter(Collider other)
     {
@@ -29,8 +33,10 @@ public class HealthSystem : MonoBehaviour
                 bloodSplatterAnimator.SetTrigger("Hit");
                 bloodSplatterStartTime = Time.time;
                 damageSound.Play();
+               zombie.hasHitTrigger = true;
             }
         }
+        
     }
 
     //health indicators
