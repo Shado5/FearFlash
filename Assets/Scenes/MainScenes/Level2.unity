@@ -12285,7 +12285,7 @@ GameObject:
   - component: {fileID: 3979752032345139869}
   - component: {fileID: 56936856}
   m_Layer: 0
-  m_Name: Sleeping Bag
+  m_Name: Sleep Bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
