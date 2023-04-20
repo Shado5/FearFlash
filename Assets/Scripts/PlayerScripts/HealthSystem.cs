@@ -64,7 +64,7 @@ public class HealthSystem : MonoBehaviour
         //lose screen
         if (health == 0)
         {
-            SceneManager.LoadScene("EndScreen");
+            SceneManager.LoadScene("JumpscareDeath");
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
