@@ -31,6 +31,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource cameraAudio;
     [SerializeField] private AudioSource manScream;
     [SerializeField] private AudioSource outAudio;
+    //[SerializeField] private AudioSource busStopMan;
 
     [SerializeField] private float _getridofphototime = 3f;
     [SerializeField] private float _reloadTime = 3f;
@@ -53,6 +54,7 @@ public class PhotoCapture : MonoBehaviour
     public GameObject reloadBar;
     public TMP_Text rToReload;
     public TMP_Text ePrompt;
+    public GameObject pictureText;
 
     private bool showText = true;
 
@@ -166,6 +168,11 @@ public class PhotoCapture : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject hitObject = hit.transform.gameObject;
+                if(hitObject.name.Equals("- Bus Seat"))
+                {
+                    //busStopMan.Play();
+                    pictureText.SetActive(true);
+                }
                 if (objectsToTakePicturesOf.Contains(hitObject))
                 {
                     Debug.Log("Taking picture of: " + hitObject.name);
@@ -285,6 +292,7 @@ public class PhotoCapture : MonoBehaviour
     void RemovePhoto()
     {
         viewingPhoto = false;
+        pictureText.SetActive(false);
         photoFrame.SetActive(false);
 
         shadowMonster.SetActive(false);
