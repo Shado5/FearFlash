@@ -292,7 +292,11 @@ public class PhotoCapture : MonoBehaviour
     void RemovePhoto()
     {
         viewingPhoto = false;
-        pictureText.SetActive(false);
+        if(pictureText != null)
+        {
+            pictureText.SetActive(false);
+        }
+        
         photoFrame.SetActive(false);
 
         shadowMonster.SetActive(false);
