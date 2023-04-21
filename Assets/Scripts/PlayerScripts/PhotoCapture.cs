@@ -147,6 +147,10 @@ public class PhotoCapture : MonoBehaviour
             {
                 objectsText.text = "Enter House";
             }
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level2"))
+            {
+                objectsText.text = "Enter Truck";
+            }
         }
     }
 

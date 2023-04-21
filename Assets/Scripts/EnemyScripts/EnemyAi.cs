@@ -37,8 +37,8 @@ public class EnemyAi : MonoBehaviour
         if (other.name == "CameraFlash") //if the zombie gets hit by camera flash
         {
             agent.SetDestination(spawn.transform.position); //teleports back to spawn
-            audioSource.clip = enemySounds[Random.Range(0, 4)]; //plays one of the 4 zombie dialogues
-            audioSource.Play();
+            //audioSource.clip = enemySounds[Random.Range(0, 4)]; //plays one of the 4 zombie dialogues
+            //audioSource.Play();
             hasHitTrigger = true;
         }
        
