@@ -31,7 +31,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource cameraAudio;
     [SerializeField] private AudioSource manScream;
     [SerializeField] private AudioSource outAudio;
-    //[SerializeField] private AudioSource busStopMan;
+    [SerializeField] private AudioSource busStopMan;
 
     [SerializeField] private float _getridofphototime = 3f;
     [SerializeField] private float _reloadTime = 3f;
@@ -170,7 +170,7 @@ public class PhotoCapture : MonoBehaviour
                 GameObject hitObject = hit.transform.gameObject;
                 if(hitObject.name.Equals("- Bus Seat"))
                 {
-                    //busStopMan.Play();
+                    busStopMan.Play();
                     pictureText.SetActive(true);
                 }
                 if (objectsToTakePicturesOf.Contains(hitObject))
