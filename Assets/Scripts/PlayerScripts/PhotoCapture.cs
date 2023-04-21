@@ -177,11 +177,13 @@ public class PhotoCapture : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject hitObject = hit.transform.gameObject;
+                //if photo of bus seat is taken
                 if(hitObject.name.Equals("- Bus Seat"))
                 {
                     busStopMan.Play();
                     pictureText.SetActive(true);
                 }
+                //if photo of cage zombie is taken
                 if (hitObject.name.Equals("Cage"))
                 {
                     
