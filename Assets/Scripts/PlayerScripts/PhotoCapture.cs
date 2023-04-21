@@ -32,6 +32,8 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private AudioSource manScream;
     [SerializeField] private AudioSource outAudio;
     [SerializeField] private AudioSource busStopMan;
+    [SerializeField] private AudioSource zombieScreech;
+    [SerializeField] private AudioSource doorSound;
 
     [SerializeField] private float _getridofphototime = 3f;
     [SerializeField] private float _reloadTime = 3f;
@@ -39,6 +41,8 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private float _removeTask = 3f;
     [SerializeField] private float _takePhototime = 0.1f;
     [SerializeField] private float _showUI = 0.1f;
+
+    [SerializeField] public Animator doorOpen;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -177,6 +181,16 @@ public class PhotoCapture : MonoBehaviour
                     busStopMan.Play();
                     pictureText.SetActive(true);
                 }
+                if (hitObject.name.Equals("Cage"))
+                {
+                    
+                        zombieScreech.Play();
+                        doorSound.Play();
+                        doorOpen.SetTrigger("DoorOpens");
+                    
+                    
+                }
+
                 if (objectsToTakePicturesOf.Contains(hitObject))
                 {
                     Debug.Log("Taking picture of: " + hitObject.name);
