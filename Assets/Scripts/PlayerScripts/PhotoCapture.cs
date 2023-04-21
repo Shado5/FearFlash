@@ -43,6 +43,7 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private float _showUI = 0.1f;
 
     [SerializeField] public Animator doorOpen;
+    [SerializeField] public Animator cageZombie;
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -187,7 +188,7 @@ public class PhotoCapture : MonoBehaviour
                         zombieScreech.Play();
                         doorSound.Play();
                         doorOpen.SetTrigger("DoorOpens");
-                    
+                        cageZombie.SetTrigger("PhotoTaken");
                     
                 }
 

@@ -14639,6 +14639,7 @@ MonoBehaviour:
   _takePhototime: 0.1
   _showUI: 0.1
   doorOpen: {fileID: 1140223439}
+  cageZombie: {fileID: 317508120}
   objectsToTakePicturesOf:
   - {fileID: 2101071461}
   - {fileID: 0}
@@ -18726,7 +18727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f509e6fd4c1fc96428406db035b58918, type: 3}
       propertyPath: m_Name
-      value: zombie1 (1)
+      value: CageZombie
       objectReference: {fileID: 0}
     - target: {fileID: 1997371324124627957, guid: f509e6fd4c1fc96428406db035b58918, type: 3}
       propertyPath: m_LocalPosition.x
