@@ -10654,12 +10654,7 @@ MonoBehaviour:
   anim: {fileID: 1806972020}
   spawn: {fileID: 1111041475}
   audioSource: {fileID: 1806972022}
-  enemySounds:
-  - {fileID: 8300000, guid: d9b9cc1407a2e374c8f9ad31fbcea9ed, type: 3}
-  - {fileID: 8300000, guid: d5667cc95f3f74a42bf46f2e052c6715, type: 3}
-  - {fileID: 8300000, guid: 2ca0f00c2d8bb3140a3914232397268a, type: 3}
-  - {fileID: 8300000, guid: b29d7da6f95e84445bd9ef95454c9a36, type: 3}
-  - {fileID: 8300000, guid: d33790f80c202564b93b5dc4d8ebb712, type: 3}
+  enemySounds: []
   hasHitTrigger: 0
 --- !u!82 &1806972018
 AudioSource:
