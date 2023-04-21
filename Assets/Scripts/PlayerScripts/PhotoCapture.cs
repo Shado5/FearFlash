@@ -42,8 +42,10 @@ public class PhotoCapture : MonoBehaviour
     [SerializeField] private float _takePhototime = 0.1f;
     [SerializeField] private float _showUI = 0.1f;
 
+    [Header("Animation")]
     [SerializeField] public Animator doorOpen;
     [SerializeField] public Animator cageZombie;
+
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
@@ -53,6 +55,7 @@ public class PhotoCapture : MonoBehaviour
     private List<GameObject> takenPicturesOfObjects = new List<GameObject>();
     public Camera mainCamera;
 
+    [Header("UI")]
     public TMP_Text objectsText;
     public GameObject backgroundImage;
     public TMP_Text shotsLeftText;
@@ -67,6 +70,7 @@ public class PhotoCapture : MonoBehaviour
 
     private int shotsLeft = 5;
 
+    [Header("Arrays")]
     public GameObject[] otherUI;
     public GameObject[] UIsometimesActive;
 
@@ -148,11 +152,11 @@ public class PhotoCapture : MonoBehaviour
     {
         if (objectsToTakePicturesOf.Count == 0)
         {
-            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial"))
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial")) //when all photoes are taken in the tutorial
             {
                 objectsText.text = "Enter House";
             }
-            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level2"))
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level2")) //when all photoes are taken in the diner
             {
                 objectsText.text = "Enter Truck";
             }
