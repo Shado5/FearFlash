@@ -45,11 +45,13 @@ public class PhotoCapture : MonoBehaviour
     [Header("Animation")]
     [SerializeField] public Animator doorOpen;
     [SerializeField] public Animator cageZombie;
+    [SerializeField] public Animator door;
 
 
     private Texture2D screenCapture;
     private bool viewingPhoto;
     private bool canTakePhoto = true;
+    private bool doorClosed = true;
 
     public List<GameObject> objectsToTakePicturesOf;
     private List<GameObject> takenPicturesOfObjects = new List<GameObject>();
@@ -160,6 +162,17 @@ public class PhotoCapture : MonoBehaviour
             {
                 objectsText.text = "Enter Truck";
             }
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Interior")) //when all photoes are taken in the interrior
+            {
+                if (doorClosed)
+                {
+                    doorSound.Play();
+                    door.SetTrigger("DoorOpens");
+                    doorClosed = false;
+                }
+
+                objectsText.text = "-Demon";
+            }
         }
     }
 
@@ -173,8 +186,8 @@ public class PhotoCapture : MonoBehaviour
     //takes picture of object that needs to be photographed
     void TakePicture()
     {
-        if (objectsToTakePicturesOf.Count > 0)
-        {
+        //if (objectsToTakePicturesOf.Count > 0)
+        //{
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             RaycastHit hit;
 
@@ -188,7 +201,7 @@ public class PhotoCapture : MonoBehaviour
                     pictureText.SetActive(true);
                 }
                 //if photo of cage zombie is taken
-                if (hitObject.name.Equals("Cage"))
+                if (hitObject.name.Equals("-Demon"))
                 {
                     
                         zombieScreech.Play();
@@ -224,7 +237,7 @@ public class PhotoCapture : MonoBehaviour
 
             }
 
-        }
+        //}
         //all objects have been photographed
         else
         {
