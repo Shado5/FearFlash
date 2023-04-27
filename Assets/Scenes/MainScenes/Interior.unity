@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029087335, g: 0.0298977, b: 0.029896773, a: 1}
+  m_IndirectSpecularColor: {r: 0.029087335, g: 0.0298977, b: 0.029896766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14927,9 +14927,9 @@ MonoBehaviour:
   cageZombie: {fileID: 317508120}
   door: {fileID: 1775811130}
   objectsToTakePicturesOf:
-  - {fileID: 261392604}
   - {fileID: 1914647652}
   - {fileID: 264307338}
+  - {fileID: 1579135770}
   mainCamera: {fileID: 1492933916}
   objectsText: {fileID: 1492933915}
   backgroundImage: {fileID: 1492933914}
@@ -21844,7 +21844,7 @@ GameObject:
   - component: {fileID: 1579135773}
   - component: {fileID: 1579135772}
   m_Layer: 0
-  m_Name: Television
+  m_Name: '- Television'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
