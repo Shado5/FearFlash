@@ -1898,7 +1898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138508954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0332, y: -0.94, z: -3.0644}
+  m_LocalPosition: {x: 2.0332, y: -0.981, z: -3.074}
   m_LocalScale: {x: 0.33783126, y: 3.6576533, z: 4.704861}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 401303423}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -5728,7 +5728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324361324}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00000023841858, y: -1.5000001, z: 0}
+  m_LocalPosition: {x: -0.00000023841858, y: -1.503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7083,7 +7083,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 401303423}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -9567,7 +9567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 401303423}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -22738,7 +22738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628435377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9695, y: -1.077, z: 3.1798}
+  m_LocalPosition: {x: 1.991, y: -1.077, z: 3.1798}
   m_LocalScale: {x: 0.21051207, y: 3.8749177, z: 4.6142015}
   m_ConstrainProportionsScale: 0
   m_Children: []

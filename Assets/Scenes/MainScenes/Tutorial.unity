@@ -715,7 +715,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1313382441}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -1972,7 +1972,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1313382441}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -6206,7 +6206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1313382441}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -9151,6 +9151,7 @@ GameObject:
   - component: {fileID: 436687416830927731}
   - component: {fileID: 3243313978139398928}
   - component: {fileID: 5781676177093504132}
+  - component: {fileID: 5781676177093504133}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -9172,6 +9173,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &5781676177093504133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781676177093504131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8077078, y: 2.0598876, z: 0.58516467}
+  m_Center: {x: -0.000000026609223, y: 0.92841107, z: 0.1230521}
 --- !u!4 &5820644957252296246
 Transform:
   m_ObjectHideFlags: 0
@@ -9963,8 +9977,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5954533, y: 2.1081684, z: 3.9136815}
-  m_Center: {x: -0.007537861, y: 0.87030303, z: 0.29247648}
+  m_Size: {x: 2.1040258, y: 2.1081684, z: 2.921085}
+  m_Center: {x: 0.11308794, y: 0.87030303, z: 0.4883572}
 --- !u!64 &7818109828173214999
 MeshCollider:
   m_ObjectHideFlags: 0
