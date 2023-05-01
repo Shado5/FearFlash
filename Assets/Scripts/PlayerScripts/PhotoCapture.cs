@@ -100,6 +100,23 @@ public class PhotoCapture : MonoBehaviour
 
     private void Update()
     {
+        if (shotsLeft == 0)
+        {
+            objectsText.text = "reload";
+        }
+        else
+        {
+            string objectsTextString = "\n";
+            foreach (GameObject obj in objectsToTakePicturesOf)
+            {
+
+                objectsTextString += takenPicturesOfObjects.Contains(obj) ? "<s>" + obj.name + "</s>\n" : obj.name + "\n";
+
+            }
+
+            objectsText.text = objectsTextString;
+        }
+
         shotsLeftText.text = "Shots left " + shotsLeft; // display the remaining shots
 
         //hides UI when e is pressed
@@ -136,16 +153,19 @@ public class PhotoCapture : MonoBehaviour
         if(shotsLeft == 0)
         {
             rToReload.gameObject.SetActive(true);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.R)) // check if the player presses "R"
         {
+            
             //reload timer starts
             if (shotsLeft == 0)
             {
                 rToReload.enabled = false;
                 StartCoroutine(ReloadTime(_reloadTime));
                 reloadBar.SetActive(true);
+                
             }
         }
     }
@@ -154,7 +174,7 @@ public class PhotoCapture : MonoBehaviour
     {
         if (objectsToTakePicturesOf.Count == 0)
         {
-            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial")) //when all photoes are taken in the tutorial
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Tutorial")) //when all photoes are taken in the tutorial
             {
                 objectsText.text = "Enter House";
             }
@@ -162,6 +182,10 @@ public class PhotoCapture : MonoBehaviour
             {
                 objectsText.text = "Enter Truck";
             }
+
+        }
+        if (objectsToTakePicturesOf.Count == 1)
+        {
             if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Interior")) //when all photoes are taken in the interrior
             {
                 if (doorClosed)
@@ -171,24 +195,22 @@ public class PhotoCapture : MonoBehaviour
                     doorClosed = false;
                 }
 
-                objectsText.text = "-Demon";
             }
         }
     }
-
     //reloads shots
     void Reload()
     {
         shotsLeft = 5;
         reloadBar.SetActive(false);
+
     }
 
     //takes picture of object that needs to be photographed
     void TakePicture()
     {
-        //if (objectsToTakePicturesOf.Count > 0)
-        //{
-            Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+       
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
@@ -208,8 +230,10 @@ public class PhotoCapture : MonoBehaviour
                         doorSound.Play();
                         doorOpen.SetTrigger("DoorOpens");
                         cageZombie.SetTrigger("PhotoTaken");
-                    
+                        
                 }
+            
+
 
                 if (objectsToTakePicturesOf.Contains(hitObject))
                 {
@@ -255,8 +279,9 @@ public class PhotoCapture : MonoBehaviour
             objectsTextString += takenPicturesOfObjects.Contains(obj) ? "<s>" + obj.name + "</s>\n" : obj.name + "\n";
             
         }
-        objectsText.text = objectsTextString;
-
+        
+            objectsText.text = objectsTextString;
+        
     }
 
     //shows invisible items when photo is taken
